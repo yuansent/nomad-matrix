@@ -1,0 +1,183 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import countries from '../../data/countries.json';
+
+export function getStaticPaths() {
+  const paths = [];
+  for (let i = 0; i < countries.length; i++) {
+    for (let j = i + 1; j < countries.length; j++) {
+      const c1 = countries[i];
+      const c2 = countries[j];
+      const slug = `${c1.id}-vs-${c2.id}`;
+      paths.push({
+        params: { slug },
+        props: { c1, c2 },
+      });
+    }
+  }
+  return paths;
+}
+
+const { c1, c2 } = Astro.props;
+
+const pageTitle = `${c1.name} vs ${c2.name}: Digital Nomad Visa & Cost Comparison (2026)`;
+const pageDesc = `Detailed comparison: ${c1.name} (${c1.visa_name}) vs ${c2.name} (${c2.visa_name}). Income requirements, taxes, stay duration, and living costs.`;
+
+const compareSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": pageTitle,
+  "description": pageDesc,
+  "mainEntity": {
+    "@type": "Article",
+    "headline": pageTitle,
+    "about": [
+      { "@type": "Place", "name": c1.name },
+      { "@type": "Place", "name": c2.name }
+    ]
+  }
+};
+---
+
+<Layout title={pageTitle} description={pageDesc} schema={compareSchema}>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Breadcrumbs -->
+    <nav class="flex text-xs text-slate-500 mb-6 space-x-2">
+      <a href="/" class="hover:text-blue-600">Home</a>
+      <span>/</span>
+      <a href="/#compare-section" class="hover:text-blue-600">Compare</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold">{c1.name} vs {c2.name}</span>
+    </nav>
+
+    <!-- Header Box -->
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <div class="inline-flex items-center space-x-3 text-4xl mb-4">
+        <span>{c1.flag}</span>
+        <span class="text-2xl font-black text-slate-400">VS</span>
+        <span>{c2.flag}</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+        {c1.name} vs {c2.name}
+      </h1>
+      <p class="text-sm sm:text-base text-slate-600 mt-3">
+        Head-to-head comparison for remote workers, freelancers, and location-independent professionals.
+      </p>
+    </div>
+
+    <!-- Direct PK Table -->
+    <div class="bg-white rounded-3xl border border-slate-200 overflow-hidden shadow-sm mb-12">
+      <div class="grid grid-cols-3 bg-slate-900 text-white p-4 sm:p-6 text-sm font-bold items-center">
+        <div class="text-slate-400 text-xs uppercase tracking-wider">Metrics</div>
+        <div class="text-center text-base sm:text-lg">{c1.flag} {c1.name}</div>
+        <div class="text-center text-base sm:text-lg">{c2.flag} {c2.name}</div>
+      </div>
+
+      <div class="divide-y divide-slate-100 text-xs sm:text-sm">
+        <!-- Visa Name -->
+        <div class="grid grid-cols-3 p-4 items-center">
+          <div class="font-semibold text-slate-500">Official Visa Name</div>
+          <div class="text-center text-slate-800 font-medium px-2">{c1.visa_name}</div>
+          <div class="text-center text-slate-800 font-medium px-2">{c2.visa_name}</div>
+        </div>
+
+        <!-- Min Income -->
+        <div class="grid grid-cols-3 p-4 items-center bg-slate-50/50">
+          <div class="font-semibold text-slate-500">Min. Monthly Income</div>
+          <div class="text-center font-bold text-slate-900">
+            {c1.min_monthly_income_usd === 0 ? "Savings (~$14k)" : `$${c1.min_monthly_income_usd.toLocaleString()}/mo`}
+          </div>
+          <div class="text-center font-bold text-slate-900">
+            {c2.min_monthly_income_usd === 0 ? "Savings (~$14k)" : `$${c2.min_monthly_income_usd.toLocaleString()}/mo`}
+          </div>
+        </div>
+
+        <!-- Stay Duration -->
+        <div class="grid grid-cols-3 p-4 items-center">
+          <div class="font-semibold text-slate-500">Initial Stay / Max Stay</div>
+          <div class="text-center text-slate-800">
+            {c1.duration_months} mo (up to {c1.max_stay_years}y)
+          </div>
+          <div class="text-center text-slate-800">
+            {c2.duration_months} mo (up to {c2.max_stay_years}y)
+          </div>
+        </div>
+
+        <!-- Nomad Tax Rate -->
+        <div class="grid grid-cols-3 p-4 items-center bg-slate-50/50">
+          <div class="font-semibold text-slate-500">Nomad Tax Rate</div>
+          <div class={`text-center font-bold ${c1.tax_rate_percent === 0 ? 'text-emerald-600' : 'text-slate-900'}`}>
+            {c1.tax_rate_percent}% {c1.tax_rate_percent === 0 && '⚡'}
+          </div>
+          <div class={`text-center font-bold ${c2.tax_rate_percent === 0 ? 'text-emerald-600' : 'text-slate-900'}`}>
+            {c2.tax_rate_percent}% {c2.tax_rate_percent === 0 && '⚡'}
+          </div>
+        </div>
+
+        <!-- Schengen Privilege -->
+        <div class="grid grid-cols-3 p-4 items-center">
+          <div class="font-semibold text-slate-500">Schengen Freedom</div>
+          <div class="text-center font-semibold">
+            {c1.schengen_access ? <span class="text-blue-600">Yes (🇪🇺 90/180 days)</span> : <span class="text-slate-400">No</span>}
+          </div>
+          <div class="text-center font-semibold">
+            {c2.schengen_access ? <span class="text-blue-600">Yes (🇪🇺 90/180 days)</span> : <span class="text-slate-400">No</span>}
+          </div>
+        </div>
+
+        <!-- Avg Living Cost -->
+        <div class="grid grid-cols-3 p-4 items-center bg-slate-50/50">
+          <div class="font-semibold text-slate-500">Avg Monthly Living Cost</div>
+          <div class="text-center font-bold text-slate-800">
+            ${c1.avg_monthly_living_cost_usd} USD
+          </div>
+          <div class="text-center font-bold text-slate-800">
+            ${c2.avg_monthly_living_cost_usd} USD
+          </div>
+        </div>
+
+        <!-- Internet Speed -->
+        <div class="grid grid-cols-3 p-4 items-center">
+          <div class="font-semibold text-slate-500">Fixed Internet Speed</div>
+          <div class="text-center text-slate-800 font-medium">{c1.internet_speed_mbps} Mbps</div>
+          <div class="text-center text-slate-800 font-medium">{c2.internet_speed_mbps} Mbps</div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-3 p-4 bg-slate-100 border-t border-slate-200 text-center text-xs font-bold">
+        <div class="text-slate-500">Detailed Page</div>
+        <div>
+          <a href={`/visa/${c1.id}`} class="text-blue-600 hover:underline">Full {c1.name} Guide →</a>
+        </div>
+        <div>
+          <a href={`/visa/${c2.id}`} class="text-blue-600 hover:underline">Full {c2.name} Guide →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Editorial Verdict & Takeaways (AI / GEO Friendly) -->
+    <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm space-y-6">
+      <h2 class="text-2xl font-bold text-slate-900">Which One Should You Choose?</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-slate-700">
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100">
+          <h3 class="font-bold text-slate-900 text-base mb-2">Choose {c1.name} if:</h3>
+          <ul class="space-y-2 list-disc list-inside text-slate-600">
+            <li>You meet the ${c1.min_monthly_income_usd} income / solvency threshold.</li>
+            <li>You value staying in {c1.region} ({c1.schengen_access ? 'Schengen travel freedom' : 'regional hub'}).</li>
+            <li>Your expected monthly budget aligns with ~${c1.avg_monthly_living_cost_usd}/mo.</li>
+          </ul>
+        </div>
+
+        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100">
+          <h3 class="font-bold text-slate-900 text-base mb-2">Choose {c2.name} if:</h3>
+          <ul class="space-y-2 list-disc list-inside text-slate-600">
+            <li>You meet the ${c2.min_monthly_income_usd} income / solvency threshold.</li>
+            <li>You value staying in {c2.region} ({c2.schengen_access ? 'Schengen travel freedom' : 'regional hub'}).</li>
+            <li>Your expected monthly budget aligns with ~${c2.avg_monthly_living_cost_usd}/mo.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

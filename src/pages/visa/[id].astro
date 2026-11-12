@@ -1,0 +1,241 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import countries from '../../data/countries.json';
+
+export function getStaticPaths() {
+  return countries.map((country) => ({
+    params: { id: country.id },
+    props: { country },
+  }));
+}
+
+const { country } = Astro.props;
+
+// Schema.org FAQPage for Google Rich Results & AI Search Quotes
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": `What is the minimum income requirement for the ${country.name} Digital Nomad Visa?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `To qualify for the ${country.visa_name}, applicants generally need to demonstrate at least ${country.min_monthly_income_usd === 0 ? 'sufficient savings (~$14k+)' : `$${country.min_monthly_income_usd}/month (${country.min_monthly_income_local})`} from remote work outside the country.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `How long can I stay on the ${country.name} Digital Nomad Visa?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `The initial grant is for ${country.duration_months} months, and it is ${country.renewable ? `renewable up to ${country.max_stay_years} years total.` : 'non-renewable directly.'}`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `What are the tax implications of living in ${country.name} as a remote worker?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `${country.tax_notes} The standard nomad tax rate is approximately ${country.tax_rate_percent}%.`
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title={`${country.name} Digital Nomad Visa 2026: Income, Taxes & Requirements`}
+  description={`Official 2026 requirements for ${country.name} Digital Nomad Visa (${country.visa_name}). Income needed: $${country.min_monthly_income_usd}/mo. Tax rate: ${country.tax_rate_percent}%.`}
+  schema={faqSchema}
+>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <!-- Breadcrumbs -->
+    <nav class="flex text-xs text-slate-500 mb-6 space-x-2">
+      <a href="/" class="hover:text-blue-600">Home</a>
+      <span>/</span>
+      <a href="/" class="hover:text-blue-600">Visas</a>
+      <span>/</span>
+      <span class="text-slate-800 font-semibold">{country.name}</span>
+    </nav>
+
+    <!-- Header Card -->
+    <div class="bg-white rounded-3xl border border-slate-200 p-6 sm:p-10 shadow-sm mb-8">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-100">
+        <div class="flex items-center space-x-4">
+          <span class="text-5xl">{country.flag}</span>
+          <div>
+            <h1 class="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              {country.name} Digital Nomad Visa
+            </h1>
+            <p class="text-sm text-slate-500 mt-1 font-medium">
+              Official Program: <span class="text-slate-800">{country.visa_name}</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          {country.schengen_access && (
+            <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200">
+              🇪🇺 Schengen Area
+            </span>
+          )}
+          <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+            ✓ 2026 Verified
+          </span>
+        </div>
+      </div>
+
+      <!-- Quick Numbers Bar -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8">
+        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+          <span class="text-xs text-slate-500 uppercase font-semibold">Min Monthly Income</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">
+            {country.min_monthly_income_usd === 0 ? "Savings" : `$${country.min_monthly_income_usd.toLocaleString()}`}
+          </div>
+          <span class="text-[11px] text-slate-400 block mt-0.5">{country.min_monthly_income_local}</span>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+          <span class="text-xs text-slate-500 uppercase font-semibold">Initial Stay</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">{country.duration_months} Months</div>
+          <span class="text-[11px] text-slate-400 block mt-0.5">Up to {country.max_stay_years} years max</span>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+          <span class="text-xs text-slate-500 uppercase font-semibold">Nomad Tax Rate</span>
+          <div class="text-2xl font-black text-indigo-600 mt-1">{country.tax_rate_percent}%</div>
+          <span class="text-[11px] text-slate-400 block mt-0.5">Special tax provisions</span>
+        </div>
+
+        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
+          <span class="text-xs text-slate-500 uppercase font-semibold">Processing Speed</span>
+          <div class="text-2xl font-black text-slate-900 mt-1">{country.processing_time_weeks}</div>
+          <span class="text-[11px] text-slate-400 block mt-0.5">Gov fee: ${country.application_fee_usd}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <!-- Left 2 Cols: Details & FAQ -->
+      <div class="lg:col-span-2 space-y-8">
+        <!-- Requirements Checklist -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <span>📋</span> Key Requirements & Eligibility
+          </h2>
+          <ul class="space-y-3 text-sm text-slate-700">
+            {country.key_requirements.map((req) => (
+              <li class="flex items-start space-x-3">
+                <span class="text-emerald-500 font-bold text-base mt-0.5">✓</span>
+                <span class="leading-relaxed">{req}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <!-- Tax & Legal Breakdown -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <span>⚖️</span> Tax Rules & Fiscal Regime
+          </h2>
+          <p class="text-sm text-slate-700 leading-relaxed bg-amber-50/70 p-4 rounded-xl border border-amber-200/60 mb-4">
+            {country.tax_notes}
+          </p>
+          <p class="text-xs text-slate-500 leading-relaxed">
+            Note: Most countries trigger full tax residency if you spend 183 days or more within a fiscal year. Always consult a licensed cross-border tax advisor before relocating.
+          </p>
+        </section>
+
+        <!-- Living Cost & Quality of Life -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
+          <h2 class="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
+            <span>🏙️</span> Living Costs & Lifestyle in {country.name}
+          </h2>
+          <div class="grid grid-cols-2 gap-4 mb-4 text-sm">
+            <div class="p-3 bg-slate-50 rounded-xl">
+              <span class="text-xs text-slate-400 block">Avg. Monthly Cost</span>
+              <span class="font-bold text-slate-900 text-base">${country.avg_monthly_living_cost_usd} USD</span>
+            </div>
+            <div class="p-3 bg-slate-50 rounded-xl">
+              <span class="text-xs text-slate-400 block">Avg. Fixed Internet</span>
+              <span class="font-bold text-slate-900 text-base">{country.internet_speed_mbps} Mbps</span>
+            </div>
+          </div>
+          <div>
+            <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block mb-2">Top Cities for Remote Workers:</span>
+            <div class="flex flex-wrap gap-2">
+              {country.top_cities.map((city) => (
+                <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-lg text-xs font-semibold">
+                  {city}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <!-- Official Sources -->
+        <div class="p-4 bg-slate-100 rounded-xl flex items-center justify-between text-xs">
+          <span class="text-slate-600 font-medium">Official Government Portal:</span>
+          <a href={country.official_source_url} target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold underline hover:text-blue-800">
+            Visit Embassy / Immigration Portal ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Right 1 Col: Conversion & Pro Kit -->
+      <div class="space-y-6">
+        <!-- Pro Kit Conversion Box -->
+        <div class="bg-gradient-to-br from-indigo-900 to-blue-900 rounded-2xl p-6 text-white shadow-lg sticky top-24">
+          <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-[11px] font-bold tracking-wider uppercase">
+            Official Checklist Dossier
+          </span>
+          <h3 class="text-xl font-bold mt-3">Apply to {country.name} Without Lawyers</h3>
+          <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+            Download the exact document folder templates, apostille guidelines, and sworn affidavit samples accepted by {country.name} consulates.
+          </p>
+
+          <div class="my-6 border-y border-white/10 py-4 space-y-2 text-xs text-slate-200">
+            <div class="flex items-center space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>English / Local language proof templates</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>183-day tax avoidance checklist</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="text-emerald-400">✓</span>
+              <span>Bank statement formatting guide</span>
+            </div>
+          </div>
+
+          <div class="flex items-baseline space-x-2 mb-4">
+            <span class="text-3xl font-black">$14.99</span>
+            <span class="text-xs text-slate-400 line-through">$49.00</span>
+          </div>
+
+          <a 
+            href="https://lemonsqueezy.com/" 
+            target="_blank" 
+            class="block w-full py-3 px-4 bg-white text-indigo-900 font-bold text-center rounded-xl hover:bg-slate-100 transition shadow-md text-sm"
+          >
+            Download {country.name} Kit Now →
+          </a>
+          <p class="text-[10px] text-center text-slate-400 mt-2">Instant PDF & DOCX download. 30-day refund policy.</p>
+        </div>
+
+        <!-- Insurance Ad Slot -->
+        <div class="border border-slate-200 bg-white rounded-2xl p-5 text-center text-xs shadow-sm">
+          <span class="text-[10px] font-semibold text-slate-400 uppercase tracking-wider block mb-2">Required by Immigration</span>
+          <p class="font-bold text-slate-900 text-sm mb-1">Nomad Health Insurance</p>
+          <p class="text-slate-500 mb-4">Most consulates require valid $50k+ travel medical coverage to issue the visa.</p>
+          <a href="#" class="inline-block w-full py-2 bg-blue-50 text-blue-600 font-bold rounded-lg border border-blue-200 hover:bg-blue-100 transition">
+            Compare Approved Insurers →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
