@@ -67,6 +67,127 @@ const schema = {
     </div>
   </div>
 
+  <!-- Interactive Visa & Tax Matcher (30-Second Quiz) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
+    <div class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-10 text-white shadow-2xl border border-indigo-500/20 relative overflow-hidden">
+      <div class="absolute -top-24 -right-24 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="max-w-3xl mb-8">
+        <span class="px-3 py-1 bg-blue-500/20 text-blue-300 border border-blue-500/30 rounded-full text-xs font-bold uppercase tracking-wider inline-flex items-center gap-1.5">
+          <span>⚡ Interactive Matcher</span>
+          <span>•</span>
+          <span>30-Second Visa Finder</span>
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black tracking-tight text-white mt-3">
+          Not Sure Where to Relocate? Find Your Best Match in 3 Seconds
+        </h2>
+        <p class="text-slate-300 text-xs sm:text-sm mt-2">
+          Adjust your monthly remote income, preferred region, and tax appetite. Our engine cross-references 2026 official immigration decrees across 47 jurisdictions in real time.
+        </p>
+      </div>
+
+      <!-- Controls Form Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 bg-white/5 p-5 rounded-2xl border border-white/10 backdrop-blur-sm">
+        <!-- Input 1: Monthly Income -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5 flex items-center justify-between">
+            <span>💵 Your Monthly Remote Income</span>
+            <span id="income-display" class="text-amber-400 font-mono font-bold">$3,000 / mo</span>
+          </label>
+          <input 
+            type="range" 
+            id="quiz-income-range" 
+            min="1000" 
+            max="6000" 
+            step="250" 
+            value="3000" 
+            class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500 mt-2"
+          />
+          <div class="flex justify-between text-[10px] text-slate-400 mt-1 font-mono">
+            <span>$1k</span>
+            <span>$3k</span>
+            <span>$6k+</span>
+          </div>
+        </div>
+
+        <!-- Input 2: Region -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+            🌍 Target Region
+          </label>
+          <select id="quiz-region" class="w-full bg-slate-800 text-white text-xs sm:text-sm rounded-xl px-3 py-2.5 border border-slate-700 focus:outline-none focus:border-blue-500 mt-1">
+            <option value="all">Any Region (Worldwide)</option>
+            <option value="Europe">Europe (Schengen & Non-EU)</option>
+            <option value="Latin America">Latin America & Caribbean</option>
+            <option value="Asia">Asia & Pacific</option>
+            <option value="Middle East">Middle East</option>
+          </select>
+        </div>
+
+        <!-- Input 3: Tax Appetite -->
+        <div>
+          <label class="block text-xs font-semibold text-slate-300 mb-1.5">
+            💰 Tax Appetite
+          </label>
+          <select id="quiz-tax" class="w-full bg-slate-800 text-white text-xs sm:text-sm rounded-xl px-3 py-2.5 border border-slate-700 focus:outline-none focus:border-blue-500 mt-1">
+            <option value="all">Any Tax Rate</option>
+            <option value="zero">0% Foreign Income Tax (Havens)</option>
+            <option value="low">Under 15% Flat Rate</option>
+            <option value="standard">Standard Progressive</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Live Results Area -->
+      <div class="mt-8">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span id="quiz-match-count" class="text-xs sm:text-sm font-bold text-slate-200">
+              Calculating matches...
+            </span>
+          </div>
+          <span class="text-[11px] text-slate-400">Ranked by Eligibility & Cost Efficiency</span>
+        </div>
+
+        <!-- Cards Container (Dynamically rendered by JS) -->
+        <div id="quiz-results-container" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <!-- Populated by client script -->
+        </div>
+
+        <!-- High-Leverage Post-Quiz CTA Box -->
+        <div class="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 bg-indigo-950/40 p-4 sm:p-5 rounded-2xl border border-indigo-500/30">
+          <div class="text-center sm:text-left">
+            <div class="flex items-center justify-center sm:justify-start space-x-2">
+              <span class="text-amber-400 font-bold text-sm">★ Ready to apply for these countries?</span>
+            </div>
+            <p class="text-xs text-slate-300 mt-1">
+              Get the legally verified employer telework letters (.docx), consulate cover letters & 183-day tax tracker.
+            </p>
+          </div>
+          <div class="flex items-center space-x-3 shrink-0">
+            <a 
+              href="https://2683573618956.gumroad.com/l/byryi" 
+              target="_blank" 
+              rel="noopener"
+              class="px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white text-xs font-bold rounded-xl shadow-lg transition-transform hover:scale-105"
+            >
+              Get All-In-One Pro Kit ($14.99) →
+            </a>
+            <a 
+              href="https://safetywing.com/nomad-insurance?referenceID=26636290&utm_source=26636290&utm_medium=Ambassador" 
+              target="_blank" 
+              rel="noopener sponsored"
+              class="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold rounded-xl border border-white/10 transition"
+            >
+              Health Insurance ($45) ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Main Directory Section -->
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-6 mb-8 border-b border-slate-200">
@@ -267,4 +388,116 @@ const schema = {
       </div>
     </div>
   </section>
+
+  <script define:vars={{ countriesData: countries }}>
+    function initQuiz() {
+      const incomeSlider = document.getElementById('quiz-income-range');
+      const incomeDisplay = document.getElementById('income-display');
+      const regionSelect = document.getElementById('quiz-region');
+      const taxSelect = document.getElementById('quiz-tax');
+      const countDisplay = document.getElementById('quiz-match-count');
+      const container = document.getElementById('quiz-results-container');
+
+      if (!incomeSlider || !container) return;
+
+      function updateMatcher() {
+        const income = parseInt(incomeSlider.value, 10);
+        incomeDisplay.textContent = `$${income.toLocaleString()} / mo`;
+
+        const region = regionSelect.value;
+        const tax = taxSelect.value;
+
+        const matches = countriesData.filter(c => {
+          if (c.min_monthly_income_usd > income) return false;
+
+          if (region !== 'all') {
+            if (region === 'Europe' && c.region !== 'Europe') return false;
+            if (region === 'Latin America' && !['Latin America', 'Caribbean'].includes(c.region)) return false;
+            if (region === 'Asia' && !['Asia', 'Southeast Asia', 'East Asia'].includes(c.region)) return false;
+            if (region === 'Middle East' && c.region !== 'Middle East') return false;
+          }
+
+          if (tax === 'zero' && c.tax_rate_percent !== 0) return false;
+          if (tax === 'low' && c.tax_rate_percent > 15) return false;
+          if (tax === 'standard' && c.tax_rate_percent <= 15) return false;
+
+          return true;
+        });
+
+        matches.sort((a, b) => {
+          if (a.tax_rate_percent !== b.tax_rate_percent) {
+            return a.tax_rate_percent - b.tax_rate_percent;
+          }
+          return a.avg_monthly_living_cost_usd - b.avg_monthly_living_cost_usd;
+        });
+
+        countDisplay.textContent = `${matches.length} Jurisdictions Match Your Profile`;
+
+        if (matches.length === 0) {
+          container.innerHTML = `
+            <div class="col-span-full py-8 text-center bg-white/5 rounded-2xl border border-white/10">
+              <p class="text-sm font-semibold text-slate-300">No exact matches under this strict threshold.</p>
+              <p class="text-xs text-slate-400 mt-1">Try increasing your monthly income slider or broadening your tax filter.</p>
+            </div>
+          `;
+          return;
+        }
+
+        const topThree = matches.slice(0, 3);
+        container.innerHTML = topThree.map(item => `
+          <div class="bg-white/10 hover:bg-white/15 border border-white/15 hover:border-blue-400/50 rounded-2xl p-5 transition flex flex-col justify-between backdrop-blur-sm">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center space-x-2">
+                  <span class="text-2xl">${item.flag}</span>
+                  <h4 class="font-bold text-white text-base">${item.name}</h4>
+                </div>
+                ${item.schengen_access ? '<span class="text-[10px] font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 px-2 py-0.5 rounded">🇪🇺 Schengen</span>' : ''}
+              </div>
+              <p class="text-xs text-slate-300 line-clamp-1 mb-4">${item.visa_name}</p>
+
+              <div class="grid grid-cols-2 gap-2 text-xs py-3 border-y border-white/10 mb-4 font-mono">
+                <div>
+                  <span class="text-slate-400 text-[10px] block">Req. Income</span>
+                  <span class="font-bold text-emerald-400">$${item.min_monthly_income_usd.toLocaleString()}/mo</span>
+                </div>
+                <div>
+                  <span class="text-slate-400 text-[10px] block">Nomad Tax</span>
+                  <span class="font-bold text-blue-300">${item.tax_rate_percent}%</span>
+                </div>
+                <div>
+                  <span class="text-slate-400 text-[10px] block">Avg. Cost</span>
+                  <span class="text-slate-200">$${item.avg_monthly_living_cost_usd}/mo</span>
+                </div>
+                <div>
+                  <span class="text-slate-400 text-[10px] block">Max Stay</span>
+                  <span class="text-slate-200">${item.max_stay_months} mos</span>
+                </div>
+              </div>
+            </div>
+
+            <a 
+              href="/visa/${item.id}" 
+              class="w-full text-center py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold transition flex items-center justify-center space-x-1"
+            >
+              <span>View Full Checklist</span>
+              <span>→</span>
+            </a>
+          </div>
+        `).join('');
+      }
+
+      incomeSlider.addEventListener('input', updateMatcher);
+      regionSelect.addEventListener('change', updateMatcher);
+      taxSelect.addEventListener('change', updateMatcher);
+
+      updateMatcher();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initQuiz);
+    } else {
+      initQuiz();
+    }
+  </script>
 </Layout>
