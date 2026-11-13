@@ -6,7 +6,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Dataset",
   "name": "Global Digital Nomad Visas Database 2026",
-  "description": "Comprehensive structured database of digital nomad visas, income thresholds, taxes, Schengen privileges, and duration for 80+ countries.",
+  "description": "Reference dataset of visa options, indicative income thresholds, tax notes, and durations. Confirm current eligibility and requirements with official authorities.",
   "keywords": ["digital nomad visa", "remote work visa", "no tax countries", "schengen digital nomad", "visa income requirements"],
   "license": "https://creativecommons.org/licenses/by/4.0/",
   "creator": {
@@ -21,9 +21,9 @@ const schema = {
   <section class="relative overflow-hidden bg-gradient-to-b from-blue-50/60 to-white pt-12 pb-16 sm:pt-20 sm:pb-24 border-b border-slate-100">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-100/70 border border-blue-200 text-blue-800 text-xs sm:text-sm font-semibold mb-6">
-        <span>✨ 100% Free & Open Source of Truth for Remote Relocation</span>
+        <span>✨ Free Reference Directory for Remote Relocation</span>
       </div>
-      
+
       <h1 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-tight max-w-4xl mx-auto mb-6">
         Find Your Next Haven: <br />
         <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
@@ -39,7 +39,7 @@ const schema = {
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">
         <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center">
           <div class="text-2xl font-black text-blue-600">{countries.length}+</div>
-          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Verified Programs</div>
+          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Listed Destinations</div>
         </div>
         <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center">
           <div class="text-2xl font-black text-emerald-600">0% - 24%</div>
@@ -50,8 +50,8 @@ const schema = {
           <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Income Spans</div>
         </div>
         <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-sm text-center">
-          <div class="text-2xl font-black text-amber-600">Weekly</div>
-          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Laws Verified</div>
+          <div class="text-2xl font-black text-amber-600">Check Sources</div>
+          <div class="text-xs text-slate-500 font-medium uppercase tracking-wider mt-1">Before Applying</div>
         </div>
       </div>
     </div>
@@ -82,7 +82,7 @@ const schema = {
           Not Sure Where to Relocate? Find Your Best Match in 3 Seconds
         </h2>
         <p class="text-slate-300 text-xs sm:text-sm mt-2">
-          Adjust your monthly remote income, preferred region, and tax appetite. Our engine cross-references 2026 official immigration decrees across 47 jurisdictions in real time.
+          Adjust your monthly remote income, preferred region, and tax appetite. Results filter our stored reference dataset; they are not a live policy check or an eligibility determination. Confirm current rules, savings requirements, nationality restrictions, and family conditions with official sources.
         </p>
       </div>
 
@@ -94,13 +94,13 @@ const schema = {
             <span>💵 Your Monthly Remote Income</span>
             <span id="income-display" class="text-amber-400 font-mono font-bold">$3,000 / mo</span>
           </label>
-          <input 
-            type="range" 
-            id="quiz-income-range" 
-            min="1000" 
-            max="6000" 
-            step="250" 
-            value="3000" 
+          <input
+            type="range"
+            id="quiz-income-range"
+            min="1000"
+            max="6000"
+            step="250"
+            value="3000"
             class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-500 mt-2"
           />
           <div class="flex justify-between text-[10px] text-slate-400 mt-1 font-mono">
@@ -162,21 +162,21 @@ const schema = {
               <span class="text-amber-400 font-bold text-sm">★ Ready to apply for these countries?</span>
             </div>
             <p class="text-xs text-slate-300 mt-1">
-              Get the legally verified employer telework letters (.docx), consulate cover letters & 183-day tax tracker.
+              Get editable employer letter examples, cover letter templates, and a day-count planning worksheet. These materials have not been reviewed by a lawyer.
             </p>
           </div>
           <div class="flex items-center space-x-3 shrink-0">
-            <a 
-              href="https://2683573618956.gumroad.com/l/byryi" 
-              target="_blank" 
+            <a
+              href="https://2683573618956.gumroad.com/l/byryi"
+              target="_blank"
               rel="noopener"
               class="px-5 py-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white text-xs font-bold rounded-xl shadow-lg transition-transform hover:scale-105"
             >
               Get All-In-One Pro Kit ($14.99) →
             </a>
-            <a 
-              href="https://safetywing.com/nomad-insurance?referenceID=26636290&utm_source=26636290&utm_medium=Ambassador" 
-              target="_blank" 
+            <a
+              href="https://safetywing.com/nomad-insurance?referenceID=26636290&utm_source=26636290&utm_medium=Ambassador"
+              target="_blank"
               rel="noopener sponsored"
               class="px-4 py-2.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold rounded-xl border border-white/10 transition"
             >
@@ -208,8 +208,8 @@ const schema = {
     <!-- Cards Grid -->
     <div id="countries-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {countries.map((item) => (
-        <a 
-          href={`/visa/${item.id}`} 
+        <a
+          href={`/visa/${item.id}`}
           class="country-card group bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-200 flex flex-col justify-between"
           data-region={item.region}
           data-income={item.min_monthly_income_usd}
@@ -349,17 +349,17 @@ const schema = {
           Everything You Need to Apply with Confidence
         </h2>
         <p class="text-slate-600 mt-3 text-base leading-relaxed">
-          Skip $2,000 legal consulting fees. Get the exact, battle-tested templates, step-by-step checklists, and interactive tax simulators.
+          Use editable examples and planning checklists to organize your research. Templates are general references, not a substitute for country-specific legal or tax advice.
         </p>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-8 text-sm text-slate-700">
           <div class="flex items-start space-x-3">
             <span class="text-emerald-500 font-bold text-lg">✓</span>
-            <span><strong>Remote Employer Attestation Letter</strong> (Apostille-ready lawyer verified template)</span>
+            <span><strong>Remote Employer Attestation Letter</strong> (Editable example; country-specific review required)</span>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-emerald-500 font-bold text-lg">✓</span>
-            <span><strong>183-Day Tax Residence Calculator</strong> (Excel & Web interactive simulator)</span>
+            <span><strong>183-Day Travel Planning Worksheet</strong> (Day counts do not determine tax residency)</span>
           </div>
           <div class="flex items-start space-x-3">
             <span class="text-emerald-500 font-bold text-lg">✓</span>
@@ -379,8 +379,8 @@ const schema = {
           </div>
 
           <!-- Gumroad Checkout Trigger -->
-          <a 
-            href="https://2683573618956.gumroad.com/l/byryi" 
+          <a
+            href="https://2683573618956.gumroad.com/l/byryi"
             target="_blank"
             class="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold rounded-xl shadow-lg shadow-indigo-500/25 hover:from-blue-700 hover:to-indigo-700 transition hover:scale-[1.02] active:scale-[0.98] text-center"
           >
@@ -473,14 +473,14 @@ const schema = {
                   <span class="text-slate-200">$${item.avg_monthly_living_cost_usd}/mo</span>
                 </div>
                 <div>
-                  <span class="text-slate-400 text-[10px] block">Max Stay</span>
-                  <span class="text-slate-200">${item.max_stay_months} mos</span>
+                  <span class="text-slate-400 text-[10px] block">Listed Duration</span>
+                  <span class="text-slate-200">${Number.isFinite(item.duration_months) ? item.duration_months + " mos" : "Check official source"}</span>
                 </div>
               </div>
             </div>
 
-            <a 
-              href="/visa/${item.id}" 
+            <a
+              href="/visa/${item.id}"
               class="w-full text-center py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-xl text-xs font-bold transition flex items-center justify-center space-x-1"
             >
               <span>View Full Checklist</span>

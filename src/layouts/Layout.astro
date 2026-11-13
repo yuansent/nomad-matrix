@@ -7,8 +7,8 @@ interface Props {
   schema?: Record<string, any>;
 }
 
-const { 
-  title, 
+const {
+  title,
   description = "Compare Digital Nomad Visas worldwide: income requirements, taxes, stay duration, processing times, and cost of living for remote workers in 2026.",
   schema
 } = Astro.props;
@@ -50,7 +50,7 @@ const canonicalURL = new URL(Astro.url.pathname, "https://nomadmatrix.com");
   <body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col font-sans antialiased selection:bg-blue-500 selection:text-white">
     <!-- Top Announcement / Affiliate Banner -->
     <div class="bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-white text-xs sm:text-sm py-2 px-4 text-center font-medium shadow-inner">
-      <span>🚀 2026 Digital Nomad Visa Index is live. Updated weekly with verified immigration sources.</span>
+      <span>🚀 Digital nomad visa reference index. Confirm current requirements with the relevant authority before applying.</span>
       <a href="https://2683573618956.gumroad.com/l/byryi" target="_blank" rel="noopener" class="ml-2 underline font-bold hover:text-amber-200 transition">Get the All-in-One Checklist →</a>
     </div>
 
@@ -65,7 +65,7 @@ const canonicalURL = new URL(Astro.url.pathname, "https://nomadmatrix.com");
             </span>
           </a>
           <span class="hidden md:inline-block px-2 py-0.5 text-xs font-semibold uppercase tracking-wider text-blue-700 bg-blue-50 rounded-full border border-blue-200">
-            Source of Truth
+            Visa Reference
           </span>
         </div>
 
@@ -77,8 +77,8 @@ const canonicalURL = new URL(Astro.url.pathname, "https://nomadmatrix.com");
         </nav>
 
         <div class="flex items-center space-x-3">
-          <a 
-            href="https://2683573618956.gumroad.com/l/byryi" 
+          <a
+            href="https://2683573618956.gumroad.com/l/byryi"
             target="_blank"
             rel="noopener"
             class="inline-flex items-center justify-center px-4 py-2 text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 rounded-lg shadow-sm shadow-blue-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]">
@@ -140,7 +140,7 @@ const canonicalURL = new URL(Astro.url.pathname, "https://nomadmatrix.com");
 
         <div class="border-t border-slate-100 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400">
           <p>© 2026 NomadMatrix. Built for global builders & remote workers.</p>
-          <p class="mt-2 sm:mt-0">Verified Schema.org & GEO-ready index.</p>
+          <p class="mt-2 sm:mt-0">General reference information; not legal or tax advice.</p>
         </div>
       </div>
     </footer>
