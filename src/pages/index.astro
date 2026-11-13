@@ -197,20 +197,23 @@ const schema = {
       </div>
 
       <!-- Quick Filter Tags -->
-      <div class="flex flex-wrap gap-2 mt-4 sm:mt-0">
-        <span class="px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold cursor-pointer shadow-sm">All ({countries.length})</span>
-        <span class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 text-xs font-semibold hover:border-slate-400 cursor-pointer transition">Europe ({countries.filter(c => c.region === 'Europe').length})</span>
-        <span class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 text-xs font-semibold hover:border-slate-400 cursor-pointer transition">Low Income (&lt;$3,000)</span>
-        <span class="px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 text-xs font-semibold hover:border-slate-400 cursor-pointer transition">0% Tax Havens</span>
+      <div id="filter-tabs" class="flex flex-wrap gap-2 mt-4 sm:mt-0">
+        <button type="button" data-filter="all" class="filter-tab px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold cursor-pointer shadow-sm transition">All ({countries.length})</button>
+        <button type="button" data-filter="europe" class="filter-tab px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 text-xs font-semibold hover:border-slate-400 cursor-pointer transition">Europe ({countries.filter(c => c.region === 'Europe').length})</button>
+        <button type="button" data-filter="low-income" class="filter-tab px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 text-xs font-semibold hover:border-slate-400 cursor-pointer transition">Low Income (&lt;$3,000)</button>
+        <button type="button" data-filter="zero-tax" class="filter-tab px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 text-xs font-semibold hover:border-slate-400 cursor-pointer transition">0% Tax Havens</button>
       </div>
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div id="countries-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {countries.map((item) => (
         <a 
           href={`/visa/${item.id}`} 
-          class="group bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-200 flex flex-col justify-between"
+          class="country-card group bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-xl hover:border-blue-400 transition-all duration-200 flex flex-col justify-between"
+          data-region={item.region}
+          data-income={item.min_monthly_income_usd}
+          data-tax={item.tax_rate_percent}
         >
           <div>
             <div class="flex items-center justify-between mb-3">
@@ -492,6 +495,46 @@ const schema = {
       taxSelect.addEventListener('change', updateMatcher);
 
       updateMatcher();
+
+      // Quick filter tabs for Active Nomad Visa Programs directory
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const cards = document.querySelectorAll('.country-card');
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const filter = tab.getAttribute('data-filter');
+
+          // Update active tab style
+          filterTabs.forEach(t => {
+            t.className = 'filter-tab px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-600 text-xs font-semibold hover:border-slate-400 cursor-pointer transition';
+          });
+          tab.className = 'filter-tab px-3 py-1.5 rounded-lg bg-blue-600 text-white text-xs font-semibold cursor-pointer shadow-sm transition';
+
+          // Filter cards
+          cards.forEach(card => {
+            const region = card.getAttribute('data-region');
+            const income = parseFloat(card.getAttribute('data-income') || '0');
+            const tax = parseFloat(card.getAttribute('data-tax') || '0');
+
+            let show = false;
+            if (filter === 'all') {
+              show = true;
+            } else if (filter === 'europe') {
+              show = region === 'Europe';
+            } else if (filter === 'low-income') {
+              show = income < 3000;
+            } else if (filter === 'zero-tax') {
+              show = tax === 0;
+            }
+
+            if (show) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
     }
 
     if (document.readyState === 'loading') {
