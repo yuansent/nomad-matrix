@@ -20,3 +20,9 @@ Consult these guides before working on related tasks:
 - [Adding or managing content](https://docs.astro.build/en/guides/content-collections/)
 - [Adding styles or using Tailwind](https://docs.astro.build/en/guides/styling/)
 - [Supporting multiple languages](https://docs.astro.build/en/guides/internationalization/)
+
+## Product quality
+
+Also read `../AGENTS.md` and `../PRODUCT_STANDARD.md`. Toolkit sales are paused. Do not restore payment links without passing the documented review gates.
+
+If only this repository is available, read `docs/product-quality/` snapshots and obtain the full audit workspace before reopening sales.
