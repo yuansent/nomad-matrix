@@ -579,7 +579,7 @@
     "region": "Europe",
     "visa_name": "Albania Digital Nomad Unique Permit",
     "min_monthly_income_usd": 610,
-    "min_monthly_income_local": "50,000 ALL/mo (2026 minimum wage) or 300,000 ALL bank deposit — the Interior Ministry procedure page still lists 32,000 ALL in some versions; confirm on e-Albania before applying",
+    "min_monthly_income_local": "50,000 ALL/mo (national minimum wage since 1 Jan 2026 — Council of Ministers Decision No. 776, 19 Dec 2025; 2026 guides use this as the benchmark) or 300,000 ALL bank deposit. The Interior Ministry procedure page still lists 32,000 ALL — the 2022 minimum-wage level — and appears not to have been updated; confirm on e-Albania before applying",
     "duration_months": 12,
     "renewable": true,
     "max_stay_years": 5,
