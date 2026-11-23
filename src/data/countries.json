@@ -520,8 +520,8 @@
     "flag": "🇱🇻",
     "region": "Europe",
     "visa_name": "Latvia Long-Stay Digital Nomad Visa",
-    "min_monthly_income_usd": 4720,
-    "min_monthly_income_local": "2.5x Latvian average salary (€4,213/mo; 2.5x the 2024 average gross wage of €1,685, per PMLP)",
+    "min_monthly_income_usd": 5083,
+    "min_monthly_income_local": "2.5x Latvian average salary (€4,538/mo; 2.5x the 2024 average gross wage of €1,685, per PMLP)",
     "duration_months": 12,
     "renewable": true,
     "max_stay_years": 2,
@@ -537,7 +537,8 @@
       "Third-country national employed by an OECD-registered employer or self-employed registered in an OECD country (applicant nationality is irrelevant)",
       "Contract with employer registered in OECD country for at least 6 months",
       "Proof of 2.5x Latvian average gross wage",
-      "Valid health insurance policy with a liability limit of at least €42,600"
+      "Valid health insurance policy with a liability limit of at least €42,600",
+      "Note: the PMLP visa page still shows the previous €4,213 figure — it has not yet been updated to the €4,538 anchor in force since 1 Apr 2026"
     ],
     "top_cities": [
       "Riga",
@@ -559,7 +560,7 @@
     "schengen_access": true,
     "tax_rate_percent": 0,
     "tax_notes": "0% tax on foreign-earned income — and no local social security contributions — while you stay no more than 183 days in any rolling 12-month period; beyond that, Romania's 10% flat income tax applies.",
-    "application_fee_usd": 130,
+    "application_fee_usd": 336,
     "processing_time_weeks": "3-5 weeks",
     "avg_monthly_living_cost_usd": 1200,
     "internet_speed_mbps": 180,
@@ -876,8 +877,8 @@
     "min_monthly_income_usd": 6250,
     "min_monthly_income_local": "$75,000 annual income ($100k for couples)",
     "duration_months": 6,
-    "renewable": true,
-    "max_stay_years": 1,
+    "renewable": false,
+    "max_stay_years": 0.5,
     "schengen_access": false,
     "tax_rate_percent": 0,
     "tax_notes": "Exempt from personal income taxes and business taxes on remote foreign earnings while non-resident; staying more than 183 days may make foreign income taxable.",
@@ -890,7 +891,9 @@
       "Proof of foreign employment or business ownership",
       "Proof of $75,000 USD annual income",
       "Clean police record and international health insurance ($50k coverage)",
-      "Valid travel passport"
+      "Valid travel passport",
+      "The official online application link is currently dead — apply by email to the Immigration Department (visas@immigration.gov.bz)",
+      "Fee is BZ$500 per adult (about $250), paid at the airport on arrival after approval; children BZ$200"
     ],
     "top_cities": [
       "San Pedro (Ambergris Caye)",
