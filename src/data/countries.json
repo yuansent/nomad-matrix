@@ -331,7 +331,7 @@
     "schengen_access": true,
     "tax_rate_percent": 10,
     "tax_notes": "Authorised nomad work income is exempt from income tax for the first 12 months (exemption must be applied for); after that a flat 10% rate applies, whether or not the income is remitted to Malta.",
-    "application_fee_usd": 325,
+    "application_fee_usd": 336,
     "processing_time_weeks": "4-8 weeks",
     "avg_monthly_living_cost_usd": 2100,
     "internet_speed_mbps": 115,
@@ -341,7 +341,8 @@
       "Employment contract outside Malta or remote freelance business",
       "Proof of €42,000 annual gross income",
       "Valid rental lease agreement or property purchase in Malta",
-      "Health insurance covering the EU and the UK, meeting the Residency Malta minimum cover table (2026 guides cite a €100,000 annual limit)"
+      "Health insurance covering the EU and the UK, meeting the Residency Malta minimum cover table (2026 guides cite a €100,000 annual limit)",
+      "A further €27.50 per person is payable in person (card only) for the residence card when you attend Residency Malta for biometrics."
     ],
     "top_cities": [
       "Valletta",
@@ -495,7 +496,7 @@
     "schengen_access": true,
     "tax_rate_percent": 15,
     "tax_notes": "15% personal income tax on a tax base up to about CZK 1,676,052, 23% above that. The optional Pausalni Dan lump-sum scheme (one monthly payment covering tax, social and health contributions) cost CZK 8,716/month for the first band in 2025.",
-    "application_fee_usd": 220,
+    "application_fee_usd": 240,
     "processing_time_weeks": "8-12 weeks",
     "avg_monthly_living_cost_usd": 1550,
     "internet_speed_mbps": 110,
@@ -503,9 +504,10 @@
     "key_requirements": [
       "Zivnostensky List (Czech Trade License) registration",
       "Proof of sufficient funds in personal bank account",
-      "Proof of accommodation for 1 full year",
+      "Proof of accommodation covering the full period of stay requested (lease, or owner's notarised confirmation of accommodation)",
       "Comprehensive foreign health insurance (PVZP or equivalent)",
-      "Apostilled clean police clearance"
+      "Apostilled clean police clearance",
+      "Trade licence notification fee CZK 1,000 (≈$48) is charged separately by the Trade Licensing Office."
     ],
     "top_cities": [
       "Prague",
@@ -521,7 +523,7 @@
     "region": "Europe",
     "visa_name": "Latvia Long-Stay Digital Nomad Visa",
     "min_monthly_income_usd": 5083,
-    "min_monthly_income_local": "2.5x Latvian average salary (€4,538/mo; 2.5x the 2024 average gross wage of €1,685, per PMLP)",
+    "min_monthly_income_local": "2.5x Latvian average salary (€4,538/mo; 2.5x the 2025 average gross wage of €1,815, per PMLP)",
     "duration_months": 12,
     "renewable": true,
     "max_stay_years": 2,
@@ -656,7 +658,7 @@
     "schengen_access": true,
     "tax_rate_percent": 14,
     "tax_notes": "Progressive income tax (2026): no tax up to the €12,348 basic allowance, then marginal rates from 14% rising to 42% (from €69,879) and 45% above €277,826.",
-    "application_fee_usd": 115,
+    "application_fee_usd": 84,
     "processing_time_weeks": "8-16 weeks",
     "avg_monthly_living_cost_usd": 2000,
     "internet_speed_mbps": 90,
@@ -667,7 +669,8 @@
       "Proof of professional qualification / portfolio",
       "German-compliant statutory or expat health insurance",
       "Registered residential address (Anmeldung)",
-      "Applicants aged 45+ must show a pension entitlement of at least €1,612.53/month at age 67 (for at least 12 years) or assets of at least €232,204 (rule in force since 1 July 2025)"
+      "Applicants aged 45+ must show a pension entitlement of at least €1,612.53/month at age 67 (for at least 12 years) or assets of at least €232,204 (rule in force since 1 July 2025)",
+      "Plus the residence permit fee after arrival: €100 for the electronic permit (eAT) or €56 for a sticker permit, plus a small processing fee (about €13 in Berlin). Visa-exempt nationals who apply in-country pay only the permit fee."
     ],
     "top_cities": [
       "Berlin",
@@ -1199,7 +1202,7 @@
     "tax_rate_percent": 0,
     "tax_notes": "Non-resident aliens pay 0% tax on income sourced outside the Philippines.",
     "application_fee_usd": 180,
-    "processing_time_weeks": "1-3 weeks",
+    "processing_time_weeks": "Not yet published",
     "avg_monthly_living_cost_usd": 1000,
     "internet_speed_mbps": 80,
     "official_source_url": "https://immigration.gov.ph/",
@@ -1208,7 +1211,8 @@
       "Proof of sufficient remote earnings to maintain stay",
       "Travel and medical insurance covering Philippine territory",
       "Clean police certificate and valid passport",
-      "Reciprocity applies: your country must offer a similar visa to Filipino citizens and host a Philippine foreign post; the official list of eligible countries has not yet been published"
+      "Reciprocity applies: your country must offer a similar visa to Filipino citizens and host a Philippine foreign post; the official list of eligible countries has not yet been published",
+      "Status (Nov 2026): created by Executive Order 86 in April 2025, but the DFA has not yet published implementing guidelines, a fee or an application channel — applications are not yet open. Figures shown are unofficial estimates."
     ],
     "top_cities": [
       "Siargao",
