@@ -167,11 +167,11 @@
     "flag": "🇭🇷",
     "region": "Europe",
     "visa_name": "Croatia Digital Nomad Residence Permit",
-    "min_monthly_income_usd": 2800,
-    "min_monthly_income_local": "€2,539 per month (2.5x average net salary)",
-    "duration_months": 12,
+    "min_monthly_income_usd": 4050,
+    "min_monthly_income_local": "€3,622.50 per month (2.5x the 2025 average net salary of €1,449; recalculated each spring)",
+    "duration_months": 18,
     "renewable": false,
-    "max_stay_years": 1,
+    "max_stay_years": 1.5,
     "schengen_access": true,
     "tax_rate_percent": 0,
     "tax_notes": "100% exempt from Croatian income tax on remote work income.",
@@ -182,8 +182,8 @@
     "official_source_url": "https://mup.gov.hr/",
     "key_requirements": [
       "Third-country national (non-EU/EEA)",
-      "Bank statements showing 12 months funds (~€30k) or monthly income proof",
-      "Must exit for 6 months after 1-year permit before reapplying",
+      "Proof of funds: €43,470 for a 12-month stay or €65,205 for 18 months, or monthly income proof",
+      "Permit may be extended once by 6 months; after the maximum stay, you must spend 6 months outside Croatia before reapplying",
       "Full health insurance & local address registration (OIB)"
     ],
     "top_cities": [
@@ -265,19 +265,20 @@
     "min_monthly_income_local": "$3,500 USD per month",
     "duration_months": 12,
     "renewable": true,
-    "max_stay_years": 5,
+    "max_stay_years": 1,
     "schengen_access": false,
     "tax_rate_percent": 0,
     "tax_notes": "0% personal income tax, 0% capital gains tax.",
-    "application_fee_usd": 287,
+    "application_fee_usd": 435,
     "processing_time_weeks": "1-2 weeks",
     "avg_monthly_living_cost_usd": 2800,
     "internet_speed_mbps": 220,
     "official_source_url": "https://www.visitdubai.com/",
     "key_requirements": [
-      "Proof of employment with 1-year contract validity or business ownership",
-      "Last month salary slip and 3 months bank statements",
-      "Health insurance with UAE coverage"
+      "Proof of employment with 1-year contract validity, or business ownership (owners need $5,000/month income)",
+      "Last month salary slip and 6 months of bank statements (GDRFA requirement since 27 Jan 2026)",
+      "Health insurance with UAE coverage",
+      "Government fees were cut in April 2026 (roughly AED 1,500-1,700 before medical exam, Emirates ID and insurance); check GDRFA for the current itemised total"
     ],
     "top_cities": [
       "Dubai",
@@ -294,19 +295,20 @@
     "min_monthly_income_local": "$2,000 USD/month or $24,000 savings (for special regimes)",
     "duration_months": 12,
     "renewable": true,
-    "max_stay_years": 10,
+    "max_stay_years": 1,
     "schengen_access": false,
     "tax_rate_percent": 1,
-    "tax_notes": "Individual Entrepreneur Small Business Status offers 1% flat turnover tax up to ~180k USD.",
+    "tax_notes": "Individual Entrepreneur Small Business Status offers 1% flat turnover tax up to ~180k USD; eligibility for foreign nationals may require a work permit - check current Revenue Service rules.",
     "application_fee_usd": 0,
     "processing_time_weeks": "Instant (visa-free entry for 95+ countries)",
     "avg_monthly_living_cost_usd": 1000,
     "internet_speed_mbps": 75,
     "official_source_url": "https://geoconsul.gov.ge/",
     "key_requirements": [
-      "365-day visa-free entry for US, EU, and many other passports",
-      "Simple border run resets the 365-day counter",
-      "Health insurance recommended"
+      "365-day visa-free entry for US, EU, and many other passports - no application and no income requirement on this route",
+      "Remotely from Georgia permit: 12-month residence confirmation for remote workers earning $2,000+/month; the programme itself charges no application fee (an optional residence card for stays of 6+ months costs about GEL 210)",
+      "Health insurance recommended",
+      "A simple border run resets the 365-day visa-free counter"
     ],
     "top_cities": [
       "Tbilisi",
@@ -425,8 +427,8 @@
     "renewable": true,
     "max_stay_years": 1.5,
     "schengen_access": true,
-    "tax_rate_percent": 20,
-    "tax_notes": "Tax residency triggered after 183 days. 20% flat personal tax rate; e-Residency corporate income 0% on reinvested profits.",
+    "tax_rate_percent": 22,
+    "tax_notes": "Tax residency triggered after 183 days. 22% flat personal tax rate (2026); e-Residency corporate income 0% on reinvested profits.",
     "application_fee_usd": 110,
     "processing_time_weeks": "2-4 weeks",
     "avg_monthly_living_cost_usd": 1600,
@@ -436,7 +438,8 @@
       "Employed by a non-Estonian employer or running location-independent business",
       "Income threshold verified via last 6 months bank statements",
       "Travel medical insurance covering at least €30,000 for entire stay",
-      "Written explanation of remote work nature"
+      "Written explanation of remote work nature",
+      "D visa runs up to 12 months and cannot be extended; a second D visa can bring the total to at most 548 days within 730 days"
     ],
     "top_cities": [
       "Tallinn",
