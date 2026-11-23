@@ -265,13 +265,13 @@ const schema = {
               <div>
                 <span class="text-slate-400 block text-[11px]">Min. Income / mo</span>
                 <span class="font-extrabold text-slate-900 text-sm">
-                  {item.min_monthly_income_usd === 0 ? "Savings Only" : `$${item.min_monthly_income_usd.toLocaleString()}/mo`}
+                  {item.min_monthly_income_usd === 0 ? "Savings Only" : item.min_monthly_income_usd === null ? "No Fixed Minimum" : `$${item.min_monthly_income_usd.toLocaleString()}/mo`}
                 </span>
               </div>
               <div>
                 <span class="text-slate-400 block text-[11px]">Stay Duration</span>
                 <span class="font-extrabold text-slate-900 text-sm">
-                  {item.duration_months} mo ({item.max_stay_years}y max)
+                  {item.duration_months} mo ({item.max_stay_years === null ? "no cap" : `${item.max_stay_years}y max`})
                 </span>
               </div>
               <div>
@@ -283,7 +283,7 @@ const schema = {
               <div>
                 <span class="text-slate-400 block text-[11px]">Nomad Tax Rate</span>
                 <span class={`font-semibold ${item.tax_rate_percent === 0 ? 'text-emerald-600 font-bold' : 'text-slate-800'}`}>
-                  {item.tax_rate_percent}% {item.tax_rate_percent === 0 && '⚡ Zero Tax'}
+                  {item.tax_rate_percent === null ? "Varies" : `${item.tax_rate_percent}%`} {item.tax_rate_percent === 0 && '⚡ Zero Tax'}
                 </span>
               </div>
             </div>
@@ -393,7 +393,7 @@ const schema = {
           }
 
           if (tax === 'zero' && c.tax_rate_percent !== 0) return false;
-          if (tax === 'low' && c.tax_rate_percent > 15) return false;
+          if (tax === 'low' && (c.tax_rate_percent === null || c.tax_rate_percent > 15)) return false;
           if (tax === 'standard' && c.tax_rate_percent <= 15) return false;
 
           return true;
@@ -401,7 +401,7 @@ const schema = {
 
         matches.sort((a, b) => {
           if (a.tax_rate_percent !== b.tax_rate_percent) {
-            return a.tax_rate_percent - b.tax_rate_percent;
+            return (a.tax_rate_percent ?? 999) - (b.tax_rate_percent ?? 999);
           }
           return a.avg_monthly_living_cost_usd - b.avg_monthly_living_cost_usd;
         });
@@ -434,11 +434,11 @@ const schema = {
               <div class="grid grid-cols-2 gap-2 text-xs py-3 border-y border-white/10 mb-4 font-mono">
                 <div>
                   <span class="text-slate-400 text-[10px] block">Req. Income</span>
-                  <span class="font-bold text-emerald-400">$${item.min_monthly_income_usd.toLocaleString()}/mo</span>
+                  <span class="font-bold text-emerald-400">${item.min_monthly_income_usd === null ? "No fixed minimum" : "$" + item.min_monthly_income_usd.toLocaleString() + "/mo"}</span>
                 </div>
                 <div>
                   <span class="text-slate-400 text-[10px] block">Nomad Tax</span>
-                  <span class="font-bold text-blue-300">${item.tax_rate_percent}%</span>
+                  <span class="font-bold text-blue-300">${item.tax_rate_percent === null ? "Varies" : item.tax_rate_percent + "%"}</span>
                 </div>
                 <div>
                   <span class="text-slate-400 text-[10px] block">Avg. Cost</span>

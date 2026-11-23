@@ -85,10 +85,10 @@ const compareSchema = {
         <div class="grid grid-cols-3 p-4 items-center bg-slate-50/50">
           <div class="font-semibold text-slate-500">Min. Monthly Income</div>
           <div class="text-center font-bold text-slate-900">
-            {c1.min_monthly_income_usd === 0 ? "Savings (~$14k)" : `$${c1.min_monthly_income_usd.toLocaleString()}/mo`}
+            {c1.min_monthly_income_usd === 0 ? "Savings (~$14k)" : c1.min_monthly_income_usd === null ? "No fixed minimum" : `$${c1.min_monthly_income_usd.toLocaleString()}/mo`}
           </div>
           <div class="text-center font-bold text-slate-900">
-            {c2.min_monthly_income_usd === 0 ? "Savings (~$14k)" : `$${c2.min_monthly_income_usd.toLocaleString()}/mo`}
+            {c2.min_monthly_income_usd === 0 ? "Savings (~$14k)" : c2.min_monthly_income_usd === null ? "No fixed minimum" : `$${c2.min_monthly_income_usd.toLocaleString()}/mo`}
           </div>
         </div>
 
@@ -96,10 +96,10 @@ const compareSchema = {
         <div class="grid grid-cols-3 p-4 items-center">
           <div class="font-semibold text-slate-500">Initial Stay / Max Stay</div>
           <div class="text-center text-slate-800">
-            {c1.duration_months} mo (up to {c1.max_stay_years}y)
+            {c1.duration_months} mo {c1.max_stay_years === null ? "(no published cap)" : `(up to ${c1.max_stay_years}y)`}
           </div>
           <div class="text-center text-slate-800">
-            {c2.duration_months} mo (up to {c2.max_stay_years}y)
+            {c2.duration_months} mo {c2.max_stay_years === null ? "(no published cap)" : `(up to ${c2.max_stay_years}y)`}
           </div>
         </div>
 
@@ -107,10 +107,10 @@ const compareSchema = {
         <div class="grid grid-cols-3 p-4 items-center bg-slate-50/50">
           <div class="font-semibold text-slate-500">Nomad Tax Rate</div>
           <div class={`text-center font-bold ${c1.tax_rate_percent === 0 ? 'text-emerald-600' : 'text-slate-900'}`}>
-            {c1.tax_rate_percent}% {c1.tax_rate_percent === 0 && '⚡'}
+            {c1.tax_rate_percent === null ? "Varies" : `${c1.tax_rate_percent}%`} {c1.tax_rate_percent === 0 && '⚡'}
           </div>
           <div class={`text-center font-bold ${c2.tax_rate_percent === 0 ? 'text-emerald-600' : 'text-slate-900'}`}>
-            {c2.tax_rate_percent}% {c2.tax_rate_percent === 0 && '⚡'}
+            {c2.tax_rate_percent === null ? "Varies" : `${c2.tax_rate_percent}%`} {c2.tax_rate_percent === 0 && '⚡'}
           </div>
         </div>
 
@@ -163,7 +163,7 @@ const compareSchema = {
         <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100">
           <h3 class="font-bold text-slate-900 text-base mb-2">Choose {c1.name} if:</h3>
           <ul class="space-y-2 list-disc list-inside text-slate-600">
-            <li>You meet the ${c1.min_monthly_income_usd} income / solvency threshold.</li>
+            <li>{c1.min_monthly_income_usd === null ? "You meet the income / solvency requirements (no fixed minimum)." : `You meet the $${c1.min_monthly_income_usd} income / solvency threshold.`}</li>
             <li>You value staying in {c1.region} ({c1.schengen_access ? 'Schengen travel freedom' : 'regional hub'}).</li>
             <li>Your expected monthly budget aligns with ~${c1.avg_monthly_living_cost_usd}/mo.</li>
           </ul>
@@ -172,7 +172,7 @@ const compareSchema = {
         <div class="p-5 rounded-2xl bg-slate-50 border border-slate-100">
           <h3 class="font-bold text-slate-900 text-base mb-2">Choose {c2.name} if:</h3>
           <ul class="space-y-2 list-disc list-inside text-slate-600">
-            <li>You meet the ${c2.min_monthly_income_usd} income / solvency threshold.</li>
+            <li>{c2.min_monthly_income_usd === null ? "You meet the income / solvency requirements (no fixed minimum)." : `You meet the $${c2.min_monthly_income_usd} income / solvency threshold.`}</li>
             <li>You value staying in {c2.region} ({c2.schengen_access ? 'Schengen travel freedom' : 'regional hub'}).</li>
             <li>Your expected monthly budget aligns with ~${c2.avg_monthly_living_cost_usd}/mo.</li>
           </ul>
