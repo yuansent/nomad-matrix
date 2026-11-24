@@ -365,7 +365,7 @@
     "schengen_access": false,
     "tax_rate_percent": null,
     "tax_notes": "Spending over 183 days in a tax year while not being tax resident anywhere else makes you a Cyprus tax resident, taxed on worldwide income at progressive rates (0% up to the exempt threshold, rising to 35%). The non-dom 0% covers only Special Defence Contribution on dividends and passive interest (for 17 years) — it does not exempt employment or self-employment income.",
-    "application_fee_usd": 150,
+    "application_fee_usd": 157,
     "processing_time_weeks": "5-7 weeks",
     "avg_monthly_living_cost_usd": 1750,
     "internet_speed_mbps": 95,
@@ -375,7 +375,8 @@
       "Proof of €3,500 net monthly income (+20% for spouse, +15% per child)",
       "Clean criminal record and apostilled police certificate",
       "Adequate private medical insurance",
-      "Local residential lease contract in Cyprus"
+      "Local residential lease contract in Cyprus",
+      "Government fee is €70 for the permit + €70 for first registration (€140 total)"
     ],
     "top_cities": [
       "Limassol",
@@ -398,7 +399,7 @@
     "schengen_access": true,
     "tax_rate_percent": null,
     "tax_notes": "The visa itself has no special tax rate: tax residents pay progressive IRPEF on worldwide income. The Regime Forfettario (5% substitute tax for the first 5 years, then 15%, turnover cap €85,000) is open only to self-employed Partita IVA holders, is charged on turnover multiplied by a profitability coefficient, and INPS social contributions (roughly 26%) come on top; employees cannot use it.",
-    "application_fee_usd": 125,
+    "application_fee_usd": 130,
     "processing_time_weeks": "4-10 weeks",
     "avg_monthly_living_cost_usd": 1900,
     "internet_speed_mbps": 105,
@@ -464,7 +465,7 @@
     "schengen_access": true,
     "tax_rate_percent": 15,
     "tax_notes": "15% flat personal income tax for residents on worldwide income. The White Card carries no tax exemption: residence is determined first by permanent home and centre of vital interests, with the 183-day test only as a fallback, so treaty outcomes vary by individual.",
-    "application_fee_usd": 120,
+    "application_fee_usd": 123,
     "processing_time_weeks": "4-6 weeks",
     "avg_monthly_living_cost_usd": 1350,
     "internet_speed_mbps": 140,
@@ -473,7 +474,8 @@
       "Third-country non-EEA citizen",
       "Employed by an employer outside Hungary or owns foreign company shares",
       "Cannot pursue gainful employment for Hungarian entities",
-      "Comprehensive health insurance and proof of accommodation in Hungary (lease, property or booking)"
+      "Comprehensive health insurance and proof of accommodation in Hungary (lease, property or booking)",
+      "Consulate fee €110; online applications HUF 26,000, in-person applications in Hungary HUF 39,000"
     ],
     "top_cities": [
       "Budapest",
